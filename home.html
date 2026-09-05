@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUTOBOX — Plataforma de Aluguel de Boxes Automotivos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="demo-nav">
+    <span>DEMO AUTOBOX:</span>
+    <button onclick="showScreen('screen-login')">1. Tela Login</button>
+    <button onclick="showScreen('screen-cadastro')">2. Tela Cadastro</button>
+    <button onclick="showScreen('screen-home')">3. Tela Home Base</button>
+  </div>
+
+  <section id="screen-login" class="screen-container active">
+    <div class="split-layout">
+      <div class="hero-column">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="logo-brand">AUTO<span>BOX</span></div>
+          <h1 class="hero-headline">A infraestrutura profissional para o seu projeto automotivo.</h1>
+          <p class="hero-subtext">Alugue boxes equipados com elevadores, ferramentas pesadas e bancadas por hora ou diária.</p>
+          <div class="social-proof-badge">
+            <span class="status-dot"></span>
+            <span>+120 boxes disponíveis para reserva hoje</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-column">
+        <div class="form-wrapper">
+          <div class="form-header">
+            <h2>Acessar sua conta</h2>
+            <p>Insira suas credenciais para gerenciar suas reservas.</p>
+          </div>
+
+          <form onsubmit="event.preventDefault(); showScreen('screen-home');">
+            <div class="input-group">
+              <label>E-MAIL</label>
+              <input type="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="input-group">
+              <label>SENHA</label>
+              <input type="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-primary">ENTRAR NA CONTA →</button>
+          </form>
+
+          <div class="form-footer">
+            <p>Ainda não tem uma conta? <a href="#" onclick="showScreen('screen-cadastro')">Criar conta</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-cadastro" class="screen-container">
+    <div class="split-layout">
+      <div class="hero-column">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="logo-brand">AUTO<span>BOX</span></div>
+          <h1 class="hero-headline">Faça parte da maior rede de oficinas compartilhadas.</h1>
+          <p class="hero-subtext">Escolha seu perfil, faça a validação de segurança e tenha acesso completo aos boxes.</p>
+        </div>
+      </div>
+
+      <div class="form-column">
+        <div class="form-wrapper">
+          <div class="form-header">
+            <h2>Criar sua conta</h2>
+            <p>Selecione seu perfil e preencha seus dados para continuar.</p>
+          </div>
+
+          <form onsubmit="event.preventDefault(); showScreen('screen-home');">
+            <!-- Seletor de Perfil -->
+            <label class="section-label">COMO VOCÊ PRETENDE USAR O BOX?</label>
+            <div class="profile-selector">
+              <div class="profile-card selected" onclick="selectProfile(this)">
+                <span class="icon">🔧</span>
+                <div class="info">
+                  <span class="title">Mecânico</span>
+                  <span class="subtitle">Atendo clientes</span>
+                </div>
+              </div>
+              <div class="profile-card" onclick="selectProfile(this)">
+                <span class="icon">🚗</span>
+                <div class="info">
+                  <span class="title">Entusiasta</span>
+                  <span class="subtitle">Uso próprio</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Campos do Formulário -->
+            <div class="input-row">
+              <div class="input-group">
+                <label>NOME COMPLETO</label>
+                <input type="text" placeholder="Digite seu nome..." required>
+              </div>
+              <div class="input-group">
+                <label>CPF</label>
+                <input type="text" placeholder="000.000.000-00" required>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="input-group">
+                <label>TELEFONE</label>
+                <input type="text" placeholder="(00) 00000-0000" required>
+              </div>
+              <div class="input-group">
+                <label>E-MAIL</label>
+                <input type="email" placeholder="seu@email.com" required>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label>SENHA</label>
+              <input type="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-primary">IR PARA VALIDAÇÃO DE SEGURANÇA →</button>
+          </form>
+
+          <div class="form-footer">
+            <p>Já possui uma conta? <a href="#" onclick="showScreen('screen-login')">Fazer login</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-home" class="screen-container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-left">
+          <div class="logo-brand">AUTO<span>BOX</span></div>
+          <div class="nav-links">
+            <a href="#" class="active">Buscar Boxes</a>
+            <a href="#">Minhas Reservas</a>
+            <a href="#">Histórico</a>
+          </div>
+        </div>
+        <div class="nav-right">
+          <div class="badge-verified">
+            <span class="icon">🛡️</span>
+            <span>Mecânico Verificado</span>
+          </div>
+          <div class="user-avatar">JS</div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="home-hero">
+      <div class="home-hero-container">
+        <h1 class="home-title">Encontre o box ideal para seu serviço</h1>
+        <p class="home-subtitle">Alugue infraestrutura profissional por hora.</p>
+
+        <div class="filter-box">
+          <div class="filter-row">
+            <div class="filter-group">
+              <label>LOCALIZAÇÃO</label>
+              <div class="input-with-icon">
+                <span class="icon">📍</span>
+                <input type="text" value="Toledo, PR">
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label>TIPO DE VEÍCULO</label>
+              <div class="input-with-icon">
+                <span class="icon">🚗</span>
+                <select>
+                  <option>Carro (Hatch/Sedan)</option>
+                  <option>SUV / Camionete</option>
+                  <option>Motocicleta</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label>DURAÇÃO</label>
+              <div class="input-with-icon">
+                <span class="icon">⏱️</span>
+                <select>
+                  <option>4 Horas</option>
+                  <option>2 Horas</option>
+                  <option>Diária Completa</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="filter-action">
+              <button class="btn-primary">BUSCAR MATCH →</button>
+            </div>
+          </div>
+
+          <!-- Equipamentos Base -->
+          <div class="equipments-row">
+            <span class="label">Equipamentos:</span>
+            <button class="pill active">✓ Elevador</button>
+            <button class="pill">+ Compressor</button>
+            <button class="pill">+ Ferramentas</button>
+            <button class="pill">+ Scanner OBD</button>
+            <button class="pill">+ Alinhadora</button>
+            <button class="pill-more">Ver mais</button>
+          </div>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <script>
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen-container').forEach(el => el.classList.remove('active'));
+      document.getElementById(screenId).classList.add('active');
+    }
+
+    function selectProfile(element) {
+      document.querySelectorAll('.profile-card').forEach(el => el.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+  </script>
+</body>
+</html>
