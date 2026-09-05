@@ -497,3 +497,80 @@ body {
   font-weight: 700;
   cursor: pointer;
 }
+
+@media (max-width: 960px) {
+  .home-hero, .navbar {
+    padding: 20px 16px;
+  }
+
+  .home-title {
+    font-size: 24px;
+  }
+
+  .home-subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .hero-column {
+    display: none;
+  }
+
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-column {
+    padding: 24px 16px;
+  }
+
+  .input-row, .profile-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .badge-verified {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .filter-box {
+    padding: 16px;
+  }
+
+  .filter-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .equipments-row {
+    gap: 6px;
+  }
+
+  .pill {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+}
