@@ -30,9 +30,6 @@
 }
 
 html {
-  /* Mantém o espaço da barra de rolagem sempre reservado, para a página
-     não "pular" para o lado ao trocar de tela entre conteúdos
-     mais largos e mais estreitos (ex: Buscar Boxes x Anunciar um Box). */
   overflow-y: scroll;
   scrollbar-gutter: stable;
 }
@@ -1211,8 +1208,6 @@ body {
   }
 }
 
-/* ---------- Linha de datas de início / término ---------- */
-
 .filter-row-dates {
   grid-template-columns: 1fr 1fr;
   margin-bottom: 0;
@@ -1234,8 +1229,6 @@ body {
   color: var(--text-placeholder);
 }
 
-/* ---------- Pill "Ver mais" ---------- */
-
 .pill-more {
   display: inline-flex;
   align-items: center;
@@ -1255,7 +1248,6 @@ body {
   color: var(--accent-yellow);
 }
 
-/* ---------- Modal de equipamentos ---------- */
 
 .modal-overlay {
   display: none;
@@ -1456,9 +1448,6 @@ body {
     flex-wrap: wrap;
     row-gap: 12px;
   }
-
-  /* "Dissolve" o wrapper .nav-left para poder reordenar logo, perfil
-     e links do menu de forma independente no layout mobile. */
   .nav-left {
     display: contents;
   }
