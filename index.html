@@ -1,1033 +1,1047 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AUTOBOX — Plataforma de Aluguel de Boxes Automotivos</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUTOBOX — Plataforma de Aluguel de Boxes Automotivos</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="demo-nav">
-    <span>DEMO AUTOBOX:</span>
+<div class="demo-nav">
+  <span class="demo-nav-label">DEMO AUTOBOX</span>
+  <div class="demo-nav-links" id="demoNavLinks">
     <button onclick="showScreen('screen-login')">Login</button>
     <button onclick="showScreen('screen-cadastro')">Cadastro</button>
-    <button onclick="showScreen('screen-validacao-mecanico')">Validação Mecânico</button>
-    <button onclick="showScreen('screen-mecanico-em-analise')">Mecânico Em Análise</button>
-    <button onclick="showScreen('screen-cadastro-oficina')">Cadastro Oficina</button>
-    <button onclick="showScreen('screen-oficina-em-analise')">Oficina Em Análise</button>
-    <button onclick="showScreen('screen-landing')">Início</button>
-    <button onclick="showScreen('screen-fluxoa-quiz')">A · Questionário</button>
-    <button onclick="showScreen('screen-fluxoa-resultado')">A · Resultado</button>
-    <button onclick="showScreen('screen-fluxoa-resumo')">A · Resumo</button>
-    <button onclick="showScreen('screen-fluxoa-confirmacao')">A · Confirmação</button>
-    <button onclick="showScreen('screen-fluxob-quiz')">B · Questionário</button>
-    <button onclick="showScreen('screen-match')">B · Match</button>
-    <button onclick="showScreen('screen-home')">B · Resultado</button>
-    <button onclick="showScreen('screen-box-detalhe')">B · Detalhe do Box</button>
-    <button onclick="showScreen('screen-fluxob-resumo')">B · Confirmação</button>
-    <button onclick="showScreen('screen-oficina-painel')">Painel Oficina</button>
-    <button onclick="showScreen('screen-mecanico-perfil')">Perfil Mecânico</button>
+    <button onclick="showScreen('screen-home')">Início</button>
+    <button onclick="showScreen('screen-box-detalhe')">Detalhe do Box</button>
+    <button onclick="showScreen('screen-reserva-resumo')">Resumo</button>
+    <button onclick="showScreen('screen-reserva-confirmada')">Confirmação</button>
+    <button onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</button>
+    <button onclick="showScreen('screen-historico')">Histórico</button>
+    <button onclick="showScreen('screen-anunciar-box')">Anunciar Box</button>
+    <button onclick="showScreen('screen-meus-boxes')">Meus Boxes</button>
+    <button onclick="showScreen('screen-perfil')">Perfil</button>
   </div>
+  <button class="demo-nav-toggle" id="demoNavToggle" onclick="toggleDemoNav()">Ocultar menu</button>
+</div>
 
-  <section id="screen-login" class="screen-container active">
-    <div class="split-layout">
-      <div class="hero-column">
-        <div class="hero-overlay"></div>
+<section id="screen-login" class="screen-container active">
+  <div class="split-layout">
+    <div class="hero-column">
+      <img src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&q=80&w=1200" alt="Box automotivo equipado">
+      <div class="hero-overlay"></div>
+      <div class="hero-column-content-wrap">
         <div class="hero-content">
           <div class="logo-brand">AUTO<span>BOX</span></div>
           <h1 class="hero-headline">A infraestrutura profissional para o seu projeto automotivo.</h1>
-          <p class="hero-subtext">Alugue boxes equipados com elevadores, ferramentas pesadas e bancadas por hora ou diária.</p>
+          <p class="hero-subtext">Alugue boxes equipados com elevadores, ferramentas pesadas e bancadas por hora ou diária. Ou anuncie seu próprio box e comece a ganhar com o espaço que você já tem.</p>
           <div class="social-proof-badge">
             <span class="status-dot"></span>
             <span>+120 boxes disponíveis para reserva hoje</span>
           </div>
         </div>
       </div>
-      
-      <div class="form-column">
-        <div class="form-wrapper">
-          <div class="form-header">
-            <h2>Acessar sua conta</h2>
-            <p>Insira suas credenciais para gerenciar suas reservas.</p>
+    </div>
+
+    <div class="form-column">
+      <div class="form-wrapper">
+        <div class="form-header">
+          <h2>Acessar sua conta</h2>
+          <p>Insira suas credenciais para gerenciar suas reservas e seus boxes.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); showScreen('screen-home');">
+          <div class="input-group">
+            <label>E-MAIL</label>
+            <input type="email" placeholder="seu@email.com" required>
           </div>
 
-          <form onsubmit="event.preventDefault(); showScreen('screen-landing');">
+          <div class="input-group">
+            <label>SENHA</label>
+            <input type="password" placeholder="••••••••" required>
+          </div>
+
+          <button type="submit" class="btn-primary">ENTRAR NA CONTA →</button>
+        </form>
+
+        <div class="form-footer">
+          <p>Ainda não tem uma conta? <a href="#" onclick="showScreen('screen-cadastro')">Criar conta</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screen-cadastro" class="screen-container">
+  <div class="split-layout">
+    <div class="hero-column">
+      <img src="https://images.unsplash.com/photo-1736426341990-f272d93f7ee7?auto=format&fit=crop&q=80&w=1200" alt="Boxes automotivos disponíveis">
+      <div class="hero-overlay"></div>
+      <div class="hero-column-content-wrap">
+        <div class="hero-content">
+          <div class="logo-brand">AUTO<span>BOX</span></div>
+          <h1 class="hero-headline">Uma conta única para alugar ou anunciar boxes.</h1>
+          <p class="hero-subtext">Não existe conta separada de mecânico ou de oficina. Com o mesmo perfil, você reserva um box quando precisa e anuncia o seu quando tem espaço sobrando.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-column">
+      <div class="form-wrapper">
+        <div class="form-header">
+          <h2>Criar sua conta</h2>
+          <p>Preencha seus dados para continuar.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); showScreen('screen-home');">
+          <div class="input-row">
+            <div class="input-group">
+              <label>NOME COMPLETO</label>
+              <input type="text" placeholder="Digite seu nome" required>
+            </div>
+            <div class="input-group">
+              <label>CPF</label>
+              <input type="text" placeholder="000.000.000-00" required>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label>TELEFONE</label>
+              <input type="text" placeholder="(00) 00000-0000" required>
+            </div>
             <div class="input-group">
               <label>E-MAIL</label>
               <input type="email" placeholder="seu@email.com" required>
             </div>
-
-            <div class="input-group">
-              <label>SENHA</label>
-              <input type="password" placeholder="••••••••" required>
-            </div>
-
-            <button type="submit" class="btn-primary">ENTRAR NA CONTA →</button>
-          </form>
-
-          <div class="form-footer">
-            <p>Ainda não tem uma conta? <a href="#" onclick="showScreen('screen-cadastro')">Criar conta</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="screen-cadastro" class="screen-container">
-    <div class="split-layout">
-      <div class="hero-column">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <div class="logo-brand">AUTO<span>BOX</span></div>
-          <h1 class="hero-headline">Faça parte da maior rede de oficinas compartilhadas.</h1>
-          <p class="hero-subtext">Escolha seu perfil, faça a validação de segurança e tenha acesso completo aos boxes.</p>
-        </div>
-      </div>
-
-      <div class="form-column">
-        <div class="form-wrapper">
-          <div class="form-header">
-            <h2>Criar sua conta</h2>
-            <p>Selecione seu perfil e preencha seus dados para continuar.</p>
           </div>
 
-          <form onsubmit="event.preventDefault(); goToCadastroNext();">
-            <label class="section-label">COMO VOCÊ PRETENDE USAR O AUTOBOX?</label>
-            <div class="profile-selector" style="grid-template-columns: 1fr 1fr 1fr;">
-              <div class="profile-card selected" onclick="selectProfile(this, 'mecanico')">
-                <span class="icon">🔧</span>
-                <div class="info">
-                  <span class="title">Mecânico</span>
-                  <span class="subtitle">Atendo clientes</span>
-                </div>
-              </div>
-              <div class="profile-card" onclick="selectProfile(this, 'entusiasta')">
-                <span class="icon">🚗</span>
-                <div class="info">
-                  <span class="title">Entusiasta</span>
-                  <span class="subtitle">Uso próprio</span>
-                </div>
-              </div>
-              <div class="profile-card" onclick="selectProfile(this, 'oficina')">
-                <span class="icon">🏢</span>
-                <div class="info">
-                  <span class="title">Dono de oficina</span>
-                  <span class="subtitle">Quero ceder boxes</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Campos do Formulário -->
-            <div class="input-row">
-              <div class="input-group">
-                <label>NOME COMPLETO</label>
-                <input type="text" placeholder="Digite seu nome..." required>
-              </div>
-              <div class="input-group">
-                <label>CPF</label>
-                <input type="text" placeholder="000.000.000-00" required>
-              </div>
-            </div>
-
-            <div class="input-row">
-              <div class="input-group">
-                <label>TELEFONE</label>
-                <input type="text" placeholder="(00) 00000-0000" required>
-              </div>
-              <div class="input-group">
-                <label>E-MAIL</label>
-                <input type="email" placeholder="seu@email.com" required>
-              </div>
-            </div>
-
-            <div class="input-group">
-              <label>SENHA</label>
-              <input type="password" placeholder="••••••••" required>
-            </div>
-
-            <button type="submit" class="btn-primary">CONTINUAR →</button>
-          </form>
-
-          <div class="form-footer">
-            <p>Já possui uma conta? <a href="#" onclick="showScreen('screen-login')">Fazer login</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== PÁGINA INICIAL ===================== -->
-  <section id="screen-landing" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-        <div class="nav-right"><div class="user-avatar">JS</div></div>
-      </div>
-    </nav>
-    <div class="landing-hero">
-      <h1>O que você precisa resolver hoje?</h1>
-      <p>Conectamos a sua necessidade automotiva ao mecânico, box ou equipamento certo — não é só um aluguel de espaço, é o match certo pro seu serviço.</p>
-
-      <div class="path-grid">
-        <div class="path-card" onclick="showScreen('screen-fluxoa-quiz')">
-          <div class="icon-circle">🔧</div>
-          <h3>Preciso de um mecânico</h3>
-          <p>Tenho um serviço para fazer e quero encontrar um profissional disponível para executá-lo.</p>
-        </div>
-        <div class="path-card" onclick="showScreen('screen-fluxob-quiz')">
-          <div class="icon-circle">🏗️</div>
-          <h3>Preciso de um espaço</h3>
-          <p>Já sei quem vai fazer o serviço (eu mesmo ou meu mecânico) e preciso de um box equipado.</p>
-        </div>
-      </div>
-
-      <a href="#" class="path-unsure" onclick="showScreen('screen-fluxoa-quiz')">Não tenho certeza — me ajudar a encontrar a melhor opção →</a>
-    </div>
-  </section>
-
-  <!-- ===================== FLUXO A: ENCONTRAR UM MECÂNICO ===================== -->
-  <section id="screen-fluxoa-quiz" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="content-wrap narrow">
-      <div class="section-eyebrow">Encontrar um mecânico</div>
-      <h1 class="section-title">Conte o que precisa</h1>
-      <p class="section-subtitle">Com essas informações encontramos o profissional certo, disponível e com o espaço adequado para o seu serviço.</p>
-
-      <div class="quiz-shell">
-        <div class="input-group">
-          <label>SERVIÇO DESEJADO</label>
-          <input type="text" placeholder="Ex: troca de embreagem">
-        </div>
-        <div class="input-group">
-          <label>DESCREVA O PROBLEMA</label>
-          <input type="text" placeholder="Ex: barulho ao trocar de marcha">
-        </div>
-        <div class="input-row">
           <div class="input-group">
-            <label>MARCA E MODELO</label>
-            <input type="text" placeholder="Ex: Honda Civic">
+            <label>SENHA</label>
+            <input type="password" placeholder="••••••••" required>
           </div>
-          <div class="input-group">
-            <label>ANO</label>
-            <input type="text" placeholder="Ex: 2018">
-          </div>
-        </div>
-        <div class="input-row">
-          <div class="input-group">
-            <label>LOCALIZAÇÃO OU REGIÃO</label>
-            <input type="text" value="Toledo, PR">
-          </div>
-          <div class="input-group">
-            <label>DATA OU PERÍODO</label>
-            <input type="text" placeholder="Ex: esta semana">
-          </div>
-        </div>
 
-        <div class="toggle-row">
-          <span class="label-title">Preciso de atendimento rápido (hoje)</span>
-          <div class="toggle-switch" onclick="toggleSwitch(this)"><div class="knob"></div></div>
-        </div>
-        <div class="toggle-row" style="margin-bottom: 28px;">
-          <span class="label-title">Meu veículo pode se deslocar até a oficina</span>
-          <div class="toggle-switch on" onclick="toggleSwitch(this)"><div class="knob"></div></div>
-        </div>
+          <button type="submit" class="btn-primary">CRIAR CONTA →</button>
+        </form>
 
-        <button class="btn-primary" onclick="showScreen('screen-fluxoa-resultado')">BUSCAR MECÂNICOS →</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="screen-fluxoa-resultado" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="content-wrap medium">
-      <div class="section-eyebrow">Resultado da busca</div>
-      <h1 class="section-title">3 mecânicos compatíveis com seu serviço</h1>
-      <p class="section-subtitle">Troca de embreagem · Honda Civic 2018 · Toledo, PR</p>
-
-      <div class="result-list">
-        <div class="result-card best-match">
-          <div class="result-avatar">🔧</div>
-          <div class="result-body">
-            <div class="result-top-row">
-              <div>
-                <div class="result-name">Carlos Mendes</div>
-                <div class="result-service">Especialista em transmissão e embreagem</div>
-              </div>
-              <div class="result-rating">⭐ 4.9</div>
-            </div>
-            <div class="result-meta-row">
-              <span>📍 Box Performance — 2,3 km</span>
-              <span>🗓️ Hoje às 14h</span>
-              <span>⏱️ ~3h estimadas</span>
-              <span class="badge-verified">🛡️ Verificado</span>
-            </div>
-            <div class="result-tags">
-              <span class="tag-static">Elevador incluso</span>
-              <span class="tag-static">Óleo/filtro opcional</span>
-              <span class="tag-static">Box climatizado</span>
-            </div>
-            <div class="result-footer">
-              <div class="result-price">
-                <span class="from-label">Mão de obra a partir de</span>
-                R$ 280 <span class="duration-label">+ box R$ 45/h</span>
-              </div>
-              <button class="btn-primary" style="width:auto; padding: 0 24px;" onclick="showScreen('screen-fluxoa-resumo')">Selecionar</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="result-card">
-          <div class="result-avatar">🔧</div>
-          <div class="result-body">
-            <div class="result-top-row">
-              <div>
-                <div class="result-name">Oficina Rota 10</div>
-                <div class="result-service">Equipe de 3 mecânicos generalistas</div>
-              </div>
-              <div class="result-rating">⭐ 4.6</div>
-            </div>
-            <div class="result-meta-row">
-              <span>📍 Box Completo Sul — 4,1 km</span>
-              <span>🗓️ Amanhã às 09h</span>
-              <span>⏱️ ~4h estimadas</span>
-              <span class="badge-verified">🛡️ Verificado</span>
-            </div>
-            <div class="result-tags">
-              <span class="tag-static">Elevador incluso</span>
-              <span class="tag-static">Scanner OBD</span>
-            </div>
-            <div class="result-footer">
-              <div class="result-price">
-                <span class="from-label">Mão de obra a partir de</span>
-                R$ 250 <span class="duration-label">+ box R$ 38/h</span>
-              </div>
-              <button class="btn-secondary" onclick="showScreen('screen-fluxoa-resumo')">Selecionar</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="result-card">
-          <div class="result-avatar">🔧</div>
-          <div class="result-body">
-            <div class="result-top-row">
-              <div>
-                <div class="result-name">Diego Alves</div>
-                <div class="result-service">Autônomo — mecânica geral</div>
-              </div>
-              <div class="result-rating">⭐ 4.5</div>
-            </div>
-            <div class="result-meta-row">
-              <span>📍 Box Performance — 2,3 km</span>
-              <span>🗓️ Sexta às 08h</span>
-              <span>⏱️ ~3h30 estimadas</span>
-              <span class="badge-neutral badge">Em análise</span>
-            </div>
-            <div class="result-tags">
-              <span class="tag-static">Elevador incluso</span>
-            </div>
-            <div class="result-footer">
-              <div class="result-price">
-                <span class="from-label">Mão de obra a partir de</span>
-                R$ 220 <span class="duration-label">+ box R$ 45/h</span>
-              </div>
-              <button class="btn-secondary" onclick="showScreen('screen-fluxoa-resumo')">Selecionar</button>
-            </div>
-          </div>
+        <div class="form-footer">
+          <p>Já possui uma conta? <a href="#" onclick="showScreen('screen-login')">Fazer login</a></p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="screen-fluxoa-resumo" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="content-wrap narrow">
-      <div class="section-eyebrow">Resumo antes da confirmação</div>
-      <h1 class="section-title">Carlos Mendes · Troca de embreagem</h1>
-      <p class="section-subtitle">Box Performance · Hoje às 14h · ~3h estimadas</p>
-
-      <div class="summary-card">
-        <div class="summary-row"><span class="label">Mão de obra (Carlos Mendes)</span><span class="value">R$ 280,00</span></div>
-        <div class="summary-row"><span class="label">Aluguel do box (3h · R$ 45/h)</span><span class="value">R$ 135,00</span></div>
-        <div class="summary-row"><span class="label">Consumíveis (óleo + filtro, opcional)</span><span class="value">R$ 90,00</span></div>
-        <div class="summary-row"><span class="label">Taxa AutoBox</span><span class="value">R$ 15,00</span></div>
-        <div class="summary-row total"><span class="label">Total</span><span class="value">R$ 520,00</span></div>
-      </div>
-
-      <button class="btn-primary" style="margin-top:24px;" onclick="showScreen('screen-fluxoa-confirmacao')">CONFIRMAR RESERVA →</button>
-      <p class="disclaimer-box">O AutoBox cobra pela infraestrutura (box, equipamentos e consumíveis). A relação de serviço é combinada diretamente entre você e o mecânico selecionado.</p>
-    </div>
-  </section>
-
-  <section id="screen-fluxoa-confirmacao" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="content-wrap narrow">
-      <div class="section-eyebrow">Reserva confirmada</div>
-      <h1 class="section-title">Serviço agendado com Carlos Mendes ✓</h1>
-      <p class="section-subtitle">Troca de embreagem · Box Performance · Hoje às 14h</p>
-
-      <div class="summary-card">
-        <div class="summary-row"><span class="label">Mecânico</span><span class="value">Carlos Mendes</span></div>
-        <div class="summary-row"><span class="label">Box reservado</span><span class="value">Box Performance</span></div>
-        <div class="summary-row"><span class="label">Check-in</span><span class="value">14:00</span></div>
-        <div class="summary-row"><span class="label">Check-out estimado</span><span class="value">17:00</span></div>
-        <div class="summary-row total"><span class="label">Total pago</span><span class="value">R$ 520,00</span></div>
-      </div>
-
-      <p class="disclaimer-box">O contato do mecânico foi liberado no seu app para combinar detalhes do serviço. O acesso ao box será feito por QR Code no horário reservado.</p>
-      <button class="btn-primary" style="margin-top:24px;" onclick="showScreen('screen-landing')">VOLTAR AO INÍCIO</button>
-    </div>
-  </section>
-
-
-  <!-- ===================== FLUXO B: ENCONTRAR UM ESPAÇO ===================== -->
-  <section id="screen-fluxob-quiz" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="content-wrap narrow">
-      <div class="section-eyebrow">Encontrar um espaço</div>
-      <h1 class="section-title">Qual serviço você vai realizar?</h1>
-      <p class="section-subtitle">Vamos indicar os boxes com os equipamentos certos para o seu caso.</p>
-
-      <div class="quiz-shell">
-        <div class="input-group">
-          <label>SERVIÇO A SER REALIZADO</label>
-          <input type="text" placeholder="Ex: troca de óleo e filtro">
-        </div>
-        <div class="input-row">
-          <div class="input-group">
-            <label>VEÍCULO</label>
-            <input type="text" placeholder="Ex: Honda CG 160">
-          </div>
-          <div class="input-group">
-            <label>DATA E DURAÇÃO</label>
-            <input type="text" placeholder="Ex: hoje, 1h">
-          </div>
-        </div>
-
-        <label class="section-label" style="margin-top:12px;">QUEM VAI EXECUTAR O SERVIÇO?</label>
-        <div class="radio-card-list">
-          <div class="radio-card selected" onclick="selectRadioCard(this)">
-            <div class="radio-dot"></div>
-            <div><div class="label-title">Eu próprio</div><div class="label-subtitle">Vou mexer no meu próprio veículo</div></div>
-          </div>
-          <div class="radio-card" onclick="selectRadioCard(this)">
-            <div class="radio-dot"></div>
-            <div><div class="label-title">Mecânico que já conheço</div><div class="label-subtitle">Ele vai até o box comigo</div></div>
-          </div>
-          <div class="radio-card" onclick="selectRadioCard(this)">
-            <div class="radio-dot"></div>
-            <div><div class="label-title">Sou mecânico e procuro um box</div><div class="label-subtitle">Já tenho o serviço e o cliente combinados</div></div>
-          </div>
-        </div>
-
-        <label class="section-label">EQUIPAMENTOS QUE VOCÊ PRECISA</label>
-        <div class="equipments-row" style="border:none; padding-top:0; margin-bottom:24px;">
-          <button class="pill active" onclick="togglePill(this)">✓ Elevador</button>
-          <button class="pill" onclick="togglePill(this)">+ Compressor</button>
-          <button class="pill" onclick="togglePill(this)">+ Scanner OBD</button>
-          <button class="pill" onclick="togglePill(this)">+ Cavalete de moto</button>
-        </div>
-
-        <div class="toggle-row">
-          <span class="label-title">Vou levar meus próprios consumíveis</span>
-          <div class="toggle-switch" onclick="toggleSwitch(this)"><div class="knob"></div></div>
-        </div>
-        <div class="toggle-row" style="margin-bottom:28px;">
-          <span class="label-title">Preciso comprar óleo/filtro no local</span>
-          <div class="toggle-switch on" onclick="toggleSwitch(this)"><div class="knob"></div></div>
-        </div>
-
-        <button class="btn-primary" onclick="showScreen('screen-match')">ENCONTRAR MEU BOX →</button>
+<section id="screen-home" class="screen-container">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo-brand" onclick="showScreen('screen-home')">AUTO<span>BOX</span></div>
+      <div class="nav-links">
+        <a class="active" onclick="showScreen('screen-home')">Buscar Boxes</a>
+        <a onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</a>
+        <a onclick="showScreen('screen-historico')">Histórico</a>
+        <a onclick="showScreen('screen-anunciar-box')">Anunciar um Box</a>
       </div>
     </div>
-  </section>
-
-  <section id="screen-match" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="match-hero">
-      <div class="match-label">ENCONTRAMOS SEU MATCH</div>
-      <div><span class="match-score">96</span><span class="match-score-suffix">%</span></div>
-      <div class="match-box-name">Box Performance</div>
-
-      <div class="match-checklist">
-        <div class="item"><span class="check">✓</span> Elevador disponível</div>
-        <div class="item"><span class="check">✓</span> Compressor incluso</div>
-        <div class="item"><span class="check">✓</span> Compatível com moto e carro de passeio</div>
-        <div class="item"><span class="check">✓</span> Disponível no horário solicitado</div>
-      </div>
-
-      <div class="match-price">R$ 45<span>/hora</span></div>
-      <button class="btn-primary" onclick="showScreen('screen-box-detalhe')">VER DETALHES DO BOX →</button>
+    <div class="nav-right">
+      <button class="nav-profile-btn" onclick="showScreen('screen-perfil')" aria-label="Ir para o perfil">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+      </button>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <section id="screen-home" class="screen-container">
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left">
-          <div class="logo-brand">AUTO<span>BOX</span></div>
-          <div class="nav-links">
-            <a href="#" class="active">Buscar Boxes</a>
-            <a href="#">Minhas Reservas</a>
-            <a href="#">Histórico</a>
-          </div>
-        </div>
-        <div class="nav-right">
-          <div class="badge-verified">
-            <span class="icon">🛡️</span>
-            <span>Mecânico Verificado</span>
-          </div>
-          <div class="user-avatar">JS</div>
-        </div>
-      </div>
-    </nav>
+<header class="home-hero">
+  <div class="home-hero-container">
+    <h1 class="home-title">Encontre o box ideal para o seu serviço</h1>
+    <p class="home-subtitle">Alugue infraestrutura profissional por hora, onde e quando precisar.</p>
 
-    <header class="home-hero">
-      <div class="home-hero-container">
-        <h1 class="home-title">Encontre o box ideal para seu serviço</h1>
-        <p class="home-subtitle">Alugue infraestrutura profissional por hora.</p>
-
-        <div class="filter-box">
-          <div class="filter-row">
-            <div class="filter-group">
-              <label>LOCALIZAÇÃO</label>
-              <div class="input-with-icon">
-                <span class="icon">📍</span>
-                <input type="text" value="Toledo, PR">
-              </div>
-            </div>
-
-            <div class="filter-group">
-              <label>TIPO DE VEÍCULO</label>
-              <div class="input-with-icon">
-                <span class="icon">🚗</span>
-                <select>
-                  <option>Carro (Hatch/Sedan)</option>
-                  <option>SUV / Camionete</option>
-                  <option>Motocicleta</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="filter-group">
-              <label>DURAÇÃO</label>
-              <div class="input-with-icon">
-                <span class="icon">⏱️</span>
-                <select>
-                  <option>4 Horas</option>
-                  <option>2 Horas</option>
-                  <option>Diária Completa</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="filter-action">
-              <button class="btn-primary" onclick="showScreen('screen-match')">BUSCAR MATCH →</button>
-            </div>
-          </div>
-
-          <!-- Equipamentos Base -->
-          <div class="equipments-row">
-            <span class="label">Equipamentos:</span>
-            <button class="pill active">✓ Elevador</button>
-            <button class="pill">+ Compressor</button>
-            <button class="pill">+ Ferramentas</button>
-            <button class="pill">+ Scanner OBD</button>
-            <button class="pill">+ Alinhadora</button>
-            <button class="pill-more">Ver mais</button>
+    <div class="filter-box">
+      <div class="filter-row">
+        <div class="filter-group">
+          <label>LOCALIZAÇÃO</label>
+          <div class="input-with-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            <select id="filtroLocalizacao">
+              <option value="Toledo, PR" selected>Toledo, PR</option>
+              <option value="Cascavel, PR">Cascavel, PR</option>
+              <option value="Marechal Cândido Rondon, PR">Marechal Cândido Rondon, PR</option>
+              <option value="Palotina, PR">Palotina, PR</option>
+              <option value="Assis Chateaubriand, PR">Assis Chateaubriand, PR</option>
+              <option value="Terra Roxa, PR">Terra Roxa, PR</option>
+              <option value="Nova Santa Rosa, PR">Nova Santa Rosa, PR</option>
+              <option value="Ouro Verde do Oeste, PR">Ouro Verde do Oeste, PR</option>
+              <option value="Tupãssi, PR">Tupãssi, PR</option>
+              <option value="Formosa do Oeste, PR">Formosa do Oeste, PR</option>
+              <option value="Quatro Pontes, PR">Quatro Pontes, PR</option>
+              <option value="Pato Bragado, PR">Pato Bragado, PR</option>
+              <option value="Entre Rios do Oeste, PR">Entre Rios do Oeste, PR</option>
+              <option value="São Pedro do Iguaçu, PR">São Pedro do Iguaçu, PR</option>
+              <option value="Guaíra, PR">Guaíra, PR</option>
+            </select>
           </div>
         </div>
 
-        <!-- Resultado da busca: grid de boxes -->
-        <div class="box-grid">
-          <div class="box-card">
-            <div class="box-card-photo">
-              🏎️
-              <div class="box-card-rating">⭐ 4.9</div>
-            </div>
-            <div class="box-card-body">
-              <div class="box-card-title">Box Performance</div>
-              <div class="box-card-location">📍 2,3 km · Zona Norte, Toledo</div>
-              <div class="box-card-tags">
-                <span class="tag-static">Elevador</span>
-                <span class="tag-static">Compressor</span>
-                <span class="tag-static">Ferramentas</span>
-              </div>
-              <div class="box-card-footer">
-                <div class="box-card-price">R$ 45<span>/h</span></div>
-                <button class="circular-btn" onclick="showScreen('screen-box-detalhe')">→</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="box-card">
-            <div class="box-card-photo">
-              🔧
-              <div class="box-card-rating">⭐ 4.7</div>
-            </div>
-            <div class="box-card-body">
-              <div class="box-card-title">Box Completo Sul</div>
-              <div class="box-card-location">📍 4,1 km · Centro, Toledo</div>
-              <div class="box-card-tags">
-                <span class="tag-static">Elevador</span>
-                <span class="tag-static">Scanner OBD</span>
-              </div>
-              <div class="box-card-footer">
-                <div class="box-card-price">R$ 38<span>/h</span></div>
-                <button class="circular-btn" onclick="showScreen('screen-box-detalhe')">→</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="box-card">
-            <div class="box-card-photo">
-              🛠️
-              <div class="box-card-rating">⭐ 4.8</div>
-            </div>
-            <div class="box-card-body">
-              <div class="box-card-title">Box Express Moto</div>
-              <div class="box-card-location">📍 1,0 km · Vila Industrial</div>
-              <div class="box-card-tags">
-                <span class="tag-static">Cavalete</span>
-                <span class="tag-static">Compressor</span>
-              </div>
-              <div class="box-card-footer">
-                <div class="box-card-price">R$ 22<span>/h</span></div>
-                <button class="circular-btn" onclick="showScreen('screen-box-detalhe')">→</button>
-              </div>
-            </div>
+        <div class="filter-group">
+          <label>TIPO DE VEÍCULO</label>
+          <div class="input-with-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 16v-5l2-5h12l2 5v5"></path><path d="M4 16h16"></path><circle cx="7.5" cy="16.5" r="1.5"></circle><circle cx="16.5" cy="16.5" r="1.5"></circle></svg>
+            <select>
+              <option>Carro (Hatch/Sedan)</option>
+              <option>SUV / Camionete</option>
+              <option>Motocicleta</option>
+            </select>
           </div>
         </div>
-      </div>
-    </header>
-  </section>
 
-  <!-- ===================== DETALHE DO BOX ===================== -->
-  <section id="screen-box-detalhe" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="content-wrap medium">
-      <div class="section-eyebrow">Detalhe do box</div>
-      <h1 class="section-title">Box Performance</h1>
-      <p class="section-subtitle">📍 2,3 km · Zona Norte, Toledo · ⭐ 4.9 (128 avaliações)</p>
-
-      <div class="box-card-photo" style="height:220px; border-radius:16px; margin-bottom:28px; font-size:48px;">🏎️</div>
-
-      <label class="section-label">EQUIPAMENTOS</label>
-      <div class="panel-grid" style="margin-bottom:28px;">
-        <div class="panel-card">
-          <div class="list-item-row">
-            <div><div class="list-item-title">Elevador 2 toneladas</div><div class="list-item-sub">Incluído no preço</div></div>
-            <span class="badge badge-available"><span class="dot"></span>Incluso</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Compressor de ar</div><div class="list-item-sub">Incluído no preço</div></div>
-            <span class="badge badge-available"><span class="dot"></span>Incluso</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Scanner OBD</div><div class="list-item-sub">Adicional</div></div>
-            <span class="badge badge-occupied"><span class="dot"></span>+ R$ 20</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Alinhadora a laser</div><div class="list-item-sub">Somente com mecânico da oficina</div></div>
-            <span class="badge badge-neutral">Sob consulta</span>
+        <div class="filter-group">
+          <label>DURAÇÃO</label>
+          <div class="input-with-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+            <select id="filtroDuracao" onchange="calcularDataFim()">
+              <optgroup label="Por hora">
+                <option value="1">1 Hora</option>
+                <option value="2">2 Horas</option>
+                <option value="3">3 Horas</option>
+                <option value="4" selected>4 Horas</option>
+                <option value="5">5 Horas</option>
+                <option value="6">6 Horas</option>
+                <option value="7">7 Horas</option>
+                <option value="8">8 Horas</option>
+                <option value="9">9 Horas</option>
+                <option value="10">10 Horas</option>
+                <option value="11">11 Horas</option>
+                <option value="12">12 Horas</option>
+                <option value="13">13 Horas</option>
+                <option value="14">14 Horas</option>
+                <option value="15">15 Horas</option>
+                <option value="16">16 Horas</option>
+                <option value="17">17 Horas</option>
+                <option value="18">18 Horas</option>
+                <option value="19">19 Horas</option>
+                <option value="20">20 Horas</option>
+                <option value="21">21 Horas</option>
+                <option value="22">22 Horas</option>
+                <option value="23">23 Horas</option>
+                <option value="24">24 Horas</option>
+              </optgroup>
+              <optgroup label="Diária">
+                <option value="24">1 Diária (24h)</option>
+                <option value="48">2 Diárias (48h)</option>
+                <option value="72">3 Diárias (72h)</option>
+                <option value="96">4 Diárias (96h)</option>
+              </optgroup>
+            </select>
           </div>
         </div>
-        <div class="panel-card">
-          <div class="panel-card-header"><h3>Consumíveis disponíveis</h3></div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Óleo 5W30 sintético (1L)</div><div class="list-item-sub">Disponível no local</div></div>
-            <span class="badge badge-available"><span class="dot"></span>+ R$ 35</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Filtro de óleo</div><div class="list-item-sub">Disponível no local</div></div>
-            <span class="badge badge-available"><span class="dot"></span>+ R$ 28</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Pastilha de freio (par)</div><div class="list-item-sub">Sob encomenda — 1 dia</div></div>
-            <span class="badge badge-occupied"><span class="dot"></span>Sob encomenda</span>
-          </div>
+
+        <div class="filter-action">
+          <button class="btn-primary" onclick="showScreen('screen-home')">BUSCAR →</button>
         </div>
       </div>
 
-      <div class="summary-card">
-        <div class="summary-row"><span class="label">Box Performance (3h · R$ 45/h)</span><span class="value">R$ 135,00</span></div>
-        <div class="summary-row"><span class="label">Scanner OBD (adicional)</span><span class="value">R$ 20,00</span></div>
-        <div class="summary-row"><span class="label">Óleo 5W30 + filtro</span><span class="value">R$ 63,00</span></div>
-        <div class="summary-row total"><span class="label">Total</span><span class="value">R$ 218,00</span></div>
+      <div class="equipments-row" id="equipmentsRow">
+        <span class="label">Equipamentos:</span>
+        <button class="pill active" onclick="togglePill(this)">Elevador</button>
+        <button class="pill" onclick="togglePill(this)">Compressor</button>
+        <button class="pill" onclick="togglePill(this)">Ferramentas</button>
+        <button class="pill" onclick="togglePill(this)">Scanner OBD</button>
+        <button class="pill" onclick="togglePill(this)">Alinhadora</button>
+        <button class="pill pill-more" onclick="openEquipmentModal()">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+          Ver mais
+        </button>
       </div>
 
-      <button class="btn-primary" style="margin-top:24px;" onclick="showScreen('screen-fluxob-resumo')">CONFIRMAR RESERVA →</button>
+      <div class="filter-row filter-row-dates">
+        <div class="filter-group">
+          <label>DATA E HORA DE INÍCIO</label>
+          <div class="input-with-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+            <input type="datetime-local" id="reservaInicio" onchange="calcularDataFim()">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>DATA E HORA DE TÉRMINO</label>
+          <div class="input-with-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+            <input type="text" id="reservaFim" placeholder="Calculado automaticamente" readonly>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <section id="screen-fluxob-resumo" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="content-wrap narrow">
-      <div class="section-eyebrow">Reserva confirmada</div>
-      <h1 class="section-title">Seu box está reservado ✓</h1>
-      <p class="section-subtitle">Box Performance · Hoje às 14h · 3 horas</p>
-
-      <div class="summary-card">
-        <div class="summary-row"><span class="label">Código de acesso</span><span class="value">QR enviado por e-mail</span></div>
-        <div class="summary-row"><span class="label">Check-in</span><span class="value">14:00</span></div>
-        <div class="summary-row"><span class="label">Check-out</span><span class="value">17:00</span></div>
-        <div class="summary-row total"><span class="label">Total pago</span><span class="value">R$ 218,00</span></div>
-      </div>
-
-      <button class="btn-primary" style="margin-top:24px;" onclick="showScreen('screen-landing')">VOLTAR AO INÍCIO</button>
-    </div>
-  </section>
-
-  <!-- ===================== PAINEL DA OFICINA PARCEIRA ===================== -->
-  <section id="screen-oficina-painel" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-        <div class="nav-right"><div class="user-avatar">OF</div></div>
-      </div>
-    </nav>
-    <div class="content-wrap">
-      <div class="section-eyebrow">Painel do parceiro</div>
-      <h1 class="section-title">Oficina Rota 10</h1>
-
-      <div class="status-banner">
-        <div>
-          <div class="oficina-name">Estado atual</div>
-          <div class="oficina-sub">Recebendo reservas normalmente</div>
+    <div class="box-grid">
+      <div class="box-card">
+        <div class="box-card-photo">
+          <img src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&q=80&w=800" alt="Box Performance">
+          <div class="box-card-rating">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.5L22 9.3l-5 4.7 1.3 7-6.3-3.6L5.7 21l1.3-7-5-4.7 7.1-.8L12 2z"></path></svg>
+            4.9
+          </div>
         </div>
-        <span class="badge badge-available" style="font-size:14px; padding:10px 18px;"><span class="dot"></span>Ativa</span>
+        <div class="box-card-body">
+          <div class="box-card-title">Box Performance</div>
+          <div class="box-card-location">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            2,3 km · Zona Norte, Toledo
+          </div>
+          <div class="box-card-tags">
+            <span class="tag-static">Elevador</span>
+            <span class="tag-static">Compressor</span>
+            <span class="tag-static">Ferramentas</span>
+          </div>
+          <div class="box-card-footer">
+            <div class="box-card-price">R$ 45<span>/h</span></div>
+            <button class="circular-btn" onclick="showScreen('screen-box-detalhe')">→</button>
+          </div>
+        </div>
       </div>
-      <div class="status-legend">
-        <span class="badge badge-neutral">Cadastro iniciado</span>
+
+      <div class="box-card">
+        <div class="box-card-photo">
+          <img src="https://images.unsplash.com/photo-1736426341990-f272d93f7ee7?auto=format&fit=crop&q=80&w=800" alt="Box Completo Sul">
+          <div class="box-card-rating">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.5L22 9.3l-5 4.7 1.3 7-6.3-3.6L5.7 21l1.3-7-5-4.7 7.1-.8L12 2z"></path></svg>
+            4.7
+          </div>
+        </div>
+        <div class="box-card-body">
+          <div class="box-card-title">Box Completo Sul</div>
+          <div class="box-card-location">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            4,1 km · Centro, Toledo
+          </div>
+          <div class="box-card-tags">
+            <span class="tag-static">Elevador</span>
+            <span class="tag-static">Scanner OBD</span>
+          </div>
+          <div class="box-card-footer">
+            <div class="box-card-price">R$ 38<span>/h</span></div>
+            <button class="circular-btn" onclick="showScreen('screen-box-detalhe')">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-card">
+        <div class="box-card-photo">
+          <img src="https://images.unsplash.com/photo-1766170507513-ef249e0ca426?auto=format&fit=crop&q=80&w=800" alt="Box Express Moto">
+          <div class="box-card-rating">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.5L22 9.3l-5 4.7 1.3 7-6.3-3.6L5.7 21l1.3-7-5-4.7 7.1-.8L12 2z"></path></svg>
+            4.8
+          </div>
+        </div>
+        <div class="box-card-body">
+          <div class="box-card-title">Box Express Moto</div>
+          <div class="box-card-location">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            1,0 km · Vila Industrial
+          </div>
+          <div class="box-card-tags">
+            <span class="tag-static">Cavalete</span>
+            <span class="tag-static">Compressor</span>
+          </div>
+          <div class="box-card-footer">
+            <div class="box-card-price">R$ 22<span>/h</span></div>
+            <button class="circular-btn" onclick="showScreen('screen-box-detalhe')">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+</section>
+
+<section id="screen-box-detalhe" class="screen-container">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo-brand" onclick="showScreen('screen-home')">AUTO<span>BOX</span></div>
+      <div class="nav-links">
+        <a onclick="showScreen('screen-home')">Buscar Boxes</a>
+        <a onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</a>
+        <a onclick="showScreen('screen-historico')">Histórico</a>
+        <a onclick="showScreen('screen-anunciar-box')">Anunciar um Box</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-profile-btn" onclick="showScreen('screen-perfil')" aria-label="Ir para o perfil">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="content-wrap medium">
+  <div class="section-eyebrow">Detalhe do box</div>
+  <h1 class="section-title">Box Performance</h1>
+  <p class="section-subtitle meta-line">
+    <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+    2,3 km · Zona Norte, Toledo ·
+    <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent-yellow)"><path d="M12 2l2.9 6.5L22 9.3l-5 4.7 1.3 7-6.3-3.6L5.7 21l1.3-7-5-4.7 7.1-.8L12 2z"></path></svg>
+    4.9 (128 avaliações)
+  </p>
+
+  <div class="detail-photo">
+    <img src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&q=80&w=1200" alt="Box Performance">
+  </div>
+
+  <label class="section-label">EQUIPAMENTOS E CONSUMÍVEIS</label>
+  <div class="panel-grid" style="margin-bottom:28px;">
+    <div class="panel-card">
+      <div class="list-item-row">
+        <div><div class="list-item-title">Elevador 2 toneladas</div><div class="list-item-sub">Incluído no preço</div></div>
+        <span class="badge badge-available"><span class="dot"></span>Incluso</span>
+      </div>
+      <div class="list-item-row">
+        <div><div class="list-item-title">Compressor de ar</div><div class="list-item-sub">Incluído no preço</div></div>
+        <span class="badge badge-available"><span class="dot"></span>Incluso</span>
+      </div>
+      <div class="list-item-row">
+        <div><div class="list-item-title">Scanner OBD</div><div class="list-item-sub">Adicional</div></div>
+        <span class="badge badge-occupied"><span class="dot"></span>+ R$ 20</span>
+      </div>
+    </div>
+    <div class="panel-card">
+      <div class="panel-card-header"><h3>Consumíveis disponíveis</h3></div>
+      <div class="list-item-row">
+        <div><div class="list-item-title">Óleo 5W30 sintético (1L)</div><div class="list-item-sub">Disponível no local</div></div>
+        <span class="badge badge-available"><span class="dot"></span>+ R$ 35</span>
+      </div>
+      <div class="list-item-row">
+        <div><div class="list-item-title">Filtro de óleo</div><div class="list-item-sub">Disponível no local</div></div>
+        <span class="badge badge-available"><span class="dot"></span>+ R$ 28</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-primary" onclick="showScreen('screen-reserva-resumo')">RESERVAR ESTE BOX →</button>
+</div>
+</section>
+
+<section id="screen-reserva-resumo" class="screen-container">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo-brand" onclick="showScreen('screen-home')">AUTO<span>BOX</span></div>
+      <div class="nav-links">
+        <a onclick="showScreen('screen-home')">Buscar Boxes</a>
+        <a onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</a>
+        <a onclick="showScreen('screen-historico')">Histórico</a>
+        <a onclick="showScreen('screen-anunciar-box')">Anunciar um Box</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-profile-btn" onclick="showScreen('screen-perfil')" aria-label="Ir para o perfil">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="content-wrap narrow">
+  <div class="section-eyebrow">Resumo antes da confirmação</div>
+  <h1 class="section-title">Box Performance</h1>
+  <p class="section-subtitle">Hoje às 14h · 3 horas</p>
+
+  <div class="summary-card">
+    <div class="summary-row"><span class="label">Box Performance (3h · R$ 45/h)</span><span class="value">R$ 135,00</span></div>
+    <div class="summary-row"><span class="label">Scanner OBD (adicional)</span><span class="value">R$ 20,00</span></div>
+    <div class="summary-row"><span class="label">Óleo 5W30 + filtro</span><span class="value">R$ 63,00</span></div>
+    <div class="summary-row total"><span class="label">Total</span><span class="value">R$ 218,00</span></div>
+  </div>
+
+  <button class="btn-primary" style="margin-top:24px;" onclick="showScreen('screen-reserva-confirmada')">CONFIRMAR E PAGAR →</button>
+  <p class="disclaimer-box">O acesso ao box é liberado por QR Code no horário reservado, sem necessidade de atendente no local.</p>
+</div>
+</section>
+
+<section id="screen-reserva-confirmada" class="screen-container">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo-brand" onclick="showScreen('screen-home')">AUTO<span>BOX</span></div>
+      <div class="nav-links">
+        <a onclick="showScreen('screen-home')">Buscar Boxes</a>
+        <a class="active" onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</a>
+        <a onclick="showScreen('screen-historico')">Histórico</a>
+        <a onclick="showScreen('screen-anunciar-box')">Anunciar um Box</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-profile-btn" onclick="showScreen('screen-perfil')" aria-label="Ir para o perfil">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="content-wrap narrow">
+  <div class="section-eyebrow">Reserva confirmada</div>
+  <h1 class="section-title">Seu box está reservado</h1>
+  <p class="section-subtitle">Box Performance · Hoje às 14h · 3 horas</p>
+
+  <div class="summary-card">
+    <div class="summary-row"><span class="label">Código de acesso</span><span class="value">QR enviado por e-mail</span></div>
+    <div class="summary-row"><span class="label">Check-in</span><span class="value">14:00</span></div>
+    <div class="summary-row"><span class="label">Check-out</span><span class="value">17:00</span></div>
+    <div class="summary-row total"><span class="label">Total pago</span><span class="value">R$ 218,00</span></div>
+  </div>
+
+  <button class="btn-primary" style="margin-top:24px;" onclick="showScreen('screen-home')">VOLTAR AO INÍCIO</button>
+</div>
+</section>
+
+<section id="screen-minhas-reservas" class="screen-container">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo-brand" onclick="showScreen('screen-home')">AUTO<span>BOX</span></div>
+      <div class="nav-links">
+        <a onclick="showScreen('screen-home')">Buscar Boxes</a>
+        <a class="active" onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</a>
+        <a onclick="showScreen('screen-historico')">Histórico</a>
+        <a onclick="showScreen('screen-anunciar-box')">Anunciar um Box</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-profile-btn" onclick="showScreen('screen-perfil')" aria-label="Ir para o perfil">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="content-wrap medium">
+  <div class="section-eyebrow">Minhas reservas</div>
+  <h1 class="section-title">Reservas em andamento</h1>
+  <p class="section-subtitle">Boxes que você reservou como usuário, em ordem de proximidade da data.</p>
+
+  <div class="reservation-list">
+    <div class="reservation-card" onclick="showScreen('screen-reserva-confirmada')">
+      <div class="reservation-thumb">
+        <img src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&q=80&w=200" alt="Box Performance">
+      </div>
+      <div class="reservation-body">
+        <div class="reservation-top-row">
+          <div class="reservation-name">Box Performance</div>
+          <span class="badge badge-available"><span class="dot"></span>Confirmada</span>
+        </div>
+        <div class="reservation-meta-row">
+          <span>
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+            Hoje, 14h às 17h
+          </span>
+          <span>
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            Zona Norte, Toledo
+          </span>
+        </div>
+        <div class="reservation-price">R$ 218,00</div>
+      </div>
+    </div>
+
+    <div class="reservation-card" onclick="showScreen('screen-reserva-confirmada')">
+      <div class="reservation-thumb">
+        <img src="https://images.unsplash.com/photo-1766170507513-ef249e0ca426?auto=format&fit=crop&q=80&w=200" alt="Box Express Moto">
+      </div>
+      <div class="reservation-body">
+        <div class="reservation-top-row">
+          <div class="reservation-name">Box Express Moto</div>
+          <span class="badge badge-neutral">Aguardando check-in</span>
+        </div>
+        <div class="reservation-meta-row">
+          <span>
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+            Amanhã, 09h às 10h
+          </span>
+          <span>
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            Vila Industrial
+          </span>
+        </div>
+        <div class="reservation-price">R$ 22,00</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="screen-historico" class="screen-container">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo-brand" onclick="showScreen('screen-home')">AUTO<span>BOX</span></div>
+      <div class="nav-links">
+        <a onclick="showScreen('screen-home')">Buscar Boxes</a>
+        <a onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</a>
+        <a class="active" onclick="showScreen('screen-historico')">Histórico</a>
+        <a onclick="showScreen('screen-anunciar-box')">Anunciar um Box</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-profile-btn" onclick="showScreen('screen-perfil')" aria-label="Ir para o perfil">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="content-wrap medium">
+  <div class="section-eyebrow">Histórico</div>
+  <h1 class="section-title">Reservas concluídas</h1>
+  <p class="section-subtitle">Boxes que você já usou, com o valor pago e a avaliação enviada.</p>
+
+  <div class="reservation-list">
+    <div class="reservation-card">
+      <div class="reservation-thumb">
+        <img src="https://images.unsplash.com/photo-1736426341990-f272d93f7ee7?auto=format&fit=crop&q=80&w=200" alt="Box Completo Sul">
+      </div>
+      <div class="reservation-body">
+        <div class="reservation-top-row">
+          <div class="reservation-name">Box Completo Sul</div>
+          <span class="reservation-rating">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.5L22 9.3l-5 4.7 1.3 7-6.3-3.6L5.7 21l1.3-7-5-4.7 7.1-.8L12 2z"></path></svg>
+            5.0
+          </span>
+        </div>
+        <div class="reservation-meta-row">
+          <span>
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+            12 de agosto
+          </span>
+        </div>
+        <div class="reservation-price">R$ 152,00</div>
+      </div>
+    </div>
+
+    <div class="reservation-card">
+      <div class="reservation-thumb">
+        <img src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&q=80&w=200" alt="Box Performance">
+      </div>
+      <div class="reservation-body">
+        <div class="reservation-top-row">
+          <div class="reservation-name">Box Performance</div>
+          <span class="reservation-rating">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.5L22 9.3l-5 4.7 1.3 7-6.3-3.6L5.7 21l1.3-7-5-4.7 7.1-.8L12 2z"></path></svg>
+            4.5
+          </span>
+        </div>
+        <div class="reservation-meta-row">
+          <span>
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+            30 de julho
+          </span>
+        </div>
+        <div class="reservation-price">R$ 180,00</div>
+      </div>
+    </div>
+
+    <div class="reservation-card">
+      <div class="reservation-thumb">
+        <img src="https://images.unsplash.com/photo-1766170507513-ef249e0ca426?auto=format&fit=crop&q=80&w=200" alt="Box Express Moto">
+      </div>
+      <div class="reservation-body">
+        <div class="reservation-top-row">
+          <div class="reservation-name">Box Express Moto</div>
+          <span class="reservation-rating">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.5L22 9.3l-5 4.7 1.3 7-6.3-3.6L5.7 21l1.3-7-5-4.7 7.1-.8L12 2z"></path></svg>
+            4.8
+          </span>
+        </div>
+        <div class="reservation-meta-row">
+          <span>
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+            18 de julho
+          </span>
+        </div>
+        <div class="reservation-price">R$ 44,00</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="screen-anunciar-box" class="screen-container">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo-brand" onclick="showScreen('screen-home')">AUTO<span>BOX</span></div>
+      <div class="nav-links">
+        <a onclick="showScreen('screen-home')">Buscar Boxes</a>
+        <a onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</a>
+        <a onclick="showScreen('screen-historico')">Histórico</a>
+        <a class="active" onclick="showScreen('screen-anunciar-box')">Anunciar um Box</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-profile-btn" onclick="showScreen('screen-perfil')" aria-label="Ir para o perfil">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="content-wrap narrow">
+  <div class="section-eyebrow">Anunciar um box</div>
+  <h1 class="section-title">Conte sobre o seu espaço</h1>
+  <p class="section-subtitle">Essas informações aparecem para quem buscar um box na sua região.</p>
+
+  <div class="quiz-shell">
+    <div class="input-group">
+      <label>NOME DO BOX</label>
+      <input type="text" placeholder="Ex: Box Garagem Central">
+    </div>
+    <div class="input-group">
+      <label>ENDEREÇO</label>
+      <input type="text" placeholder="Rua, número, bairro — Toledo, PR">
+    </div>
+    <div class="input-row">
+      <div class="input-group">
+        <label>PREÇO POR HORA</label>
+        <input type="text" placeholder="Ex: 40">
+      </div>
+      <div class="input-group">
+        <label>HORÁRIO DE DISPONIBILIDADE</label>
+        <input type="text" placeholder="Ex: 07h às 22h, todos os dias">
+      </div>
+    </div>
+
+    <label class="section-label">TIPOS DE VEÍCULO ATENDIDOS</label>
+    <div class="equipments-row" style="border:none; padding-top:0; margin-bottom:20px;">
+      <button class="pill active" onclick="togglePill(this)">Carro</button>
+      <button class="pill active" onclick="togglePill(this)">SUV/Camionete</button>
+      <button class="pill" onclick="togglePill(this)">Motocicleta</button>
+    </div>
+
+    <label class="section-label">EQUIPAMENTOS DISPONÍVEIS NO BOX</label>
+    <div class="equipments-row" style="border:none; padding-top:0; margin-bottom:20px;">
+      <button class="pill active" onclick="togglePill(this)">Elevador</button>
+      <button class="pill active" onclick="togglePill(this)">Compressor</button>
+      <button class="pill" onclick="togglePill(this)">Scanner OBD</button>
+      <button class="pill" onclick="togglePill(this)">Cavalete de moto</button>
+    </div>
+
+    <div class="toggle-row" style="margin-bottom:28px;">
+      <span class="label-title">Box disponível 24 horas</span>
+      <div class="toggle-switch on" onclick="toggleSwitch(this)"><div class="knob"></div></div>
+    </div>
+
+    <label class="section-label">FOTO DO BOX</label>
+    <div class="upload-box">
+      <svg class="icon-svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7l1.5-2.5h5L16 7"></path><circle cx="12" cy="13.5" r="3.5"></circle></svg>
+      <span>Toque para adicionar uma foto do box</span>
+    </div>
+
+    <button class="btn-primary" onclick="showScreen('screen-meus-boxes')">PUBLICAR BOX →</button>
+  </div>
+</div>
+</section>
+
+<section id="screen-meus-boxes" class="screen-container">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo-brand" onclick="showScreen('screen-home')">AUTO<span>BOX</span></div>
+      <div class="nav-links">
+        <a onclick="showScreen('screen-home')">Buscar Boxes</a>
+        <a onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</a>
+        <a onclick="showScreen('screen-historico')">Histórico</a>
+        <a onclick="showScreen('screen-anunciar-box')">Anunciar um Box</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-profile-btn" onclick="showScreen('screen-perfil')" aria-label="Ir para o perfil">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="content-wrap medium">
+  <div class="section-eyebrow">Meus boxes</div>
+  <h1 class="section-title">Boxes que você anuncia</h1>
+  <p class="section-subtitle">Espaços que você cedeu na plataforma para outras pessoas reservarem.</p>
+
+  <div class="panel-card">
+    <div class="panel-card-header"><h3>Boxes anunciados</h3><button class="btn-secondary" onclick="showScreen('screen-anunciar-box')">Anunciar outro box</button></div>
+    <div class="list-item-row">
+      <div><div class="list-item-title">Box Garagem Central</div><div class="list-item-sub">R$ 40/h · Carro e SUV · Zona Sul</div></div>
+      <span class="badge badge-available"><span class="dot"></span>Ativo</span>
+    </div>
+    <div class="list-item-row">
+      <div><div class="list-item-title">Box Oficina Norte</div><div class="list-item-sub">R$ 35/h · Carro · Zona Norte</div></div>
+      <span class="badge badge-neutral">Em análise</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="screen-perfil" class="screen-container">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo-brand" onclick="showScreen('screen-home')">AUTO<span>BOX</span></div>
+      <div class="nav-links">
+        <a onclick="showScreen('screen-home')">Buscar Boxes</a>
+        <a onclick="showScreen('screen-minhas-reservas')">Minhas Reservas</a>
+        <a onclick="showScreen('screen-historico')">Histórico</a>
+        <a onclick="showScreen('screen-anunciar-box')">Anunciar um Box</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-profile-btn" onclick="showScreen('screen-perfil')" aria-label="Ir para o perfil">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="content-wrap medium">
+  <div class="profile-header">
+    <div class="profile-avatar-lg">
+      <svg class="icon-svg-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+    </div>
+    <div>
+      <div class="profile-name-row">
+        <h2>João Pedro Silva</h2>
+        <span class="badge-verified">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          Identidade verificada
+        </span>
+      </div>
+      <div class="profile-meta">Mecânico autônomo e entusiasta de carros antigos. Uso o AutoBox tanto para atender clientes quanto para minhas próprias manutenções. Toledo, PR.</div>
+      <div class="profile-stats">
+        <div class="profile-stat"><span class="stat-value">12</span><span class="stat-label">Reservas feitas</span></div>
+        <div class="profile-stat"><span class="stat-value">2</span><span class="stat-label">Boxes anunciados</span></div>
+        <div class="profile-stat"><span class="stat-value">4.8</span><span class="stat-label">Avaliação média</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-grid">
+    <div class="panel-card">
+      <div class="panel-card-header"><h3>Meus boxes</h3><button class="btn-secondary" onclick="showScreen('screen-meus-boxes')">Ver todos</button></div>
+      <div class="list-item-row">
+        <div><div class="list-item-title">Box Garagem Central</div><div class="list-item-sub">R$ 40/h · Zona Sul</div></div>
+        <span class="badge badge-available"><span class="dot"></span>Ativo</span>
+      </div>
+      <div class="list-item-row">
+        <div><div class="list-item-title">Box Oficina Norte</div><div class="list-item-sub">R$ 35/h · Zona Norte</div></div>
         <span class="badge badge-neutral">Em análise</span>
-        <span class="badge badge-neutral">Aprovada</span>
-        <span class="badge badge-available"><span class="dot"></span>Ativa</span>
-        <span class="badge badge-occupied"><span class="dot"></span>Pausada</span>
-        <span class="badge badge-unavailable"><span class="dot"></span>Suspensa</span>
-      </div>
-
-      <div class="panel-grid" style="margin-top:32px;">
-        <div class="panel-card">
-          <div class="panel-card-header"><h3>Boxes cadastrados</h3><button class="btn-secondary">+ Novo box</button></div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Box 01 — Completo</div><div class="list-item-sub">R$ 45/h · Carro e SUV</div></div>
-            <span class="badge badge-available"><span class="dot"></span>Disponível</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Box 02 — Básico</div><div class="list-item-sub">R$ 30/h · Carro</div></div>
-            <span class="badge badge-occupied"><span class="dot"></span>Ocupado</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Box 03 — Moto</div><div class="list-item-sub">R$ 22/h · Motocicleta</div></div>
-            <span class="badge badge-available"><span class="dot"></span>Disponível</span>
-          </div>
-        </div>
-
-        <div class="panel-card">
-          <div class="panel-card-header"><h3>Equipamentos</h3><button class="btn-secondary">+ Adicionar</button></div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Elevador 2t</div><div class="list-item-sub">Box 01 · incluído</div></div>
-            <span class="badge badge-neutral">Uso do cliente</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Compressor</div><div class="list-item-sub">Box 01 e 02 · incluído</div></div>
-            <span class="badge badge-neutral">Uso do cliente</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Alinhadora a laser</div><div class="list-item-sub">Box 01 · adicional</div></div>
-            <span class="badge badge-neutral">Somente c/ mecânico</span>
-          </div>
-        </div>
-
-        <div class="panel-card">
-          <div class="panel-card-header"><h3>Consumíveis</h3><button class="btn-secondary">+ Adicionar</button></div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Óleo 5W30 (1L)</div><div class="list-item-sub">R$ 35 · estoque: 40un</div></div>
-            <span class="badge badge-available"><span class="dot"></span>Disponível</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Filtro de óleo</div><div class="list-item-sub">R$ 28 · estoque: 22un</div></div>
-            <span class="badge badge-available"><span class="dot"></span>Disponível</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Pastilha de freio</div><div class="list-item-sub">Sob encomenda</div></div>
-            <span class="badge badge-occupied"><span class="dot"></span>Sob encomenda</span>
-          </div>
-        </div>
-
-        <div class="panel-card">
-          <div class="panel-card-header"><h3>Mecânicos da oficina</h3><button class="btn-secondary">+ Cadastrar</button></div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Carlos Mendes</div><div class="list-item-sub">Embreagem e transmissão</div></div>
-            <span class="badge-verified">🛡️ Verificado</span>
-          </div>
-          <div class="list-item-row">
-            <div><div class="list-item-title">Diego Alves</div><div class="list-item-sub">Mecânica geral</div></div>
-            <span class="badge badge-neutral">Em análise</span>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
 
-  <!-- ===================== PERFIL DO MECÂNICO VERIFICADO ===================== -->
-  <section id="screen-mecanico-perfil" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
+    <div class="panel-card">
+      <div class="panel-card-header"><h3>Atividade</h3></div>
+      <div class="list-item-row">
+        <div><div class="list-item-title">Minhas reservas</div><div class="list-item-sub">2 reservas em andamento</div></div>
+        <button class="btn-secondary" onclick="showScreen('screen-minhas-reservas')">Ver</button>
       </div>
-    </nav>
-    <div class="content-wrap medium">
-      <div class="profile-header">
-        <div class="profile-avatar-lg">CM</div>
-        <div>
-          <div class="profile-name-row">
-            <h2>Carlos Mendes</h2>
-            <span class="badge-verified">🛡️ Verificado</span>
-          </div>
-          <div class="profile-meta">Especialista em embreagem e transmissão · 8 anos de experiência · Toledo, PR</div>
-          <div class="result-rating">⭐ 4.9 · 128 serviços concluídos</div>
-        </div>
-      </div>
-
-      <label class="section-label">PLANO ATUAL</label>
-      <div class="plan-card">
-        <div class="plan-card-header">
-          <div>
-            <div style="font-size:16px; font-weight:700; margin-bottom:4px;">Plano Profissional</div>
-            <div style="font-size:12px; color:var(--text-muted);">Renovação automática mensal</div>
-          </div>
-          <div class="plan-price">R$ 49<span>/mês</span></div>
-        </div>
-        <div class="plan-features">
-          <div class="item"><span class="check">✓</span> Perfil elegível para indicações no Fluxo A</div>
-          <div class="item"><span class="check">✓</span> Agenda própria de disponibilidade</div>
-          <div class="item"><span class="check">✓</span> Recebimento direto de pedidos de clientes</div>
-        </div>
-      </div>
-
-      <div class="disclaimer-box">
-        A mensalidade mantém o perfil ativo e elegível para indicações — ela não substitui nem compra a validação técnica. Todo mecânico passa por análise antes de ficar disponível para os clientes, e o selo "Verificado" indica passagem por esse processo, não uma garantia absoluta do serviço prestado.
+      <div class="list-item-row">
+        <div><div class="list-item-title">Histórico</div><div class="list-item-sub">3 reservas concluídas</div></div>
+        <button class="btn-secondary" onclick="showScreen('screen-historico')">Ver</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ===================== VALIDAÇÃO DO MECÂNICO ===================== -->
-  <section id="screen-validacao-mecanico" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
+  <div class="disclaimer-box">
+    O selo de identidade verificada confirma que os dados cadastrais foram checados. Ele não é uma garantia sobre a qualidade de qualquer serviço mecânico realizado fora da plataforma.
+  </div>
+</div>
+</section>
+
+<div class="modal-overlay" id="equipmentModalOverlay" onclick="if(event.target===this) closeEquipmentModal()">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3>Mais equipamentos</h3>
+      <button class="modal-close" onclick="closeEquipmentModal()" aria-label="Fechar">
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <div class="input-with-icon modal-search">
+      <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-3.5-3.5"></path></svg>
+      <input type="text" id="equipmentSearchInput" placeholder="Buscar equipamento..." oninput="renderEquipmentModalList(this.value)">
+    </div>
+
+    <div class="modal-equipment-list" id="equipmentModalList"></div>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeEquipmentModal()">Cancelar</button>
+      <button class="btn-primary modal-apply-btn" onclick="applyEquipmentSelection()">APLICAR SELEÇÃO →</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer-container">
+    <div class="site-footer-top">
+      <div class="site-footer-brand">
+        <div class="logo-brand">AUTO<span>BOX</span></div>
+        <p class="site-footer-tagline">A infraestrutura profissional para o seu projeto automotivo, por hora ou diária.</p>
       </div>
-    </nav>
-    <div class="content-wrap narrow">
-      <div class="section-eyebrow">Validação de segurança</div>
-      <h1 class="section-title">Antes de liberar seu perfil, algumas perguntas</h1>
-      <p class="section-subtitle">Esse teste garante que quem usa os boxes tem o conhecimento técnico mínimo para trabalhar com segurança. Leva menos de 5 minutos.</p>
 
-      <div class="quiz-shell">
-        <label class="section-label">1. Ao usar um elevador automotivo, qual o procedimento correto antes de subir o veículo?</label>
-        <div class="radio-card-list">
-          <div class="radio-card selected" onclick="selectRadioCard(this)">
-            <div class="radio-dot"></div>
-            <div class="label-title">Verificar os pontos de apoio recomendados pelo fabricante</div>
-          </div>
-          <div class="radio-card" onclick="selectRadioCard(this)">
-            <div class="radio-dot"></div>
-            <div class="label-title">Subir o veículo o mais rápido possível</div>
-          </div>
-          <div class="radio-card" onclick="selectRadioCard(this)">
-            <div class="radio-dot"></div>
-            <div class="label-title">Não é necessário nenhum cuidado adicional</div>
-          </div>
-        </div>
+      <div class="site-footer-col">
+        <h4>Contato</h4>
+        <a href="mailto:kauanmagriff@gmail.com" class="site-footer-link">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+          kauanmagriff@gmail.com
+        </a>
+        <a href="tel:+5544920020577" class="site-footer-link">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"></path></svg>
+          (44) 92002-0577
+        </a>
+      </div>
 
-        <label class="section-label">2. Qual o descarte correto de óleo usado?</label>
-        <div class="radio-card-list">
-          <div class="radio-card selected" onclick="selectRadioCard(this)">
-            <div class="radio-dot"></div>
-            <div class="label-title">Recipiente próprio, encaminhado a coletor autorizado</div>
-          </div>
-          <div class="radio-card" onclick="selectRadioCard(this)">
-            <div class="radio-dot"></div>
-            <div class="label-title">Descarte na rede de esgoto do box</div>
-          </div>
-        </div>
-
-        <label class="section-label">3. Envie um comprovante (opcional)</label>
-        <div class="card" style="padding:24px; text-align:center; color:var(--text-muted); font-size:13px; margin-bottom:28px; border-style:dashed;">
-          📎 Certificado de curso técnico, carteira profissional ou portfólio de serviços
-        </div>
-
-        <button class="btn-primary" onclick="showScreen('screen-mecanico-em-analise')">ENVIAR VALIDAÇÃO →</button>
+      <div class="site-footer-col">
+        <h4>Projeto</h4>
+        <p class="site-footer-note">Este site é um protótipo desenvolvido para o Hackathon PigData 2026.</p>
+        <p class="site-footer-note">Equipe: Kauan Magri, Kauan Machado, Guilherme Kist e João Vitor.</p>
       </div>
     </div>
-  </section>
 
-  <section id="screen-mecanico-em-analise" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="match-hero">
-      <div class="match-label">CADASTRO ENVIADO</div>
-      <div style="font-size:56px; margin: 16px 0;">🕓</div>
-      <div class="match-box-name">Seu perfil está em análise</div>
-      <p style="color:var(--text-muted); font-size:14px; margin-bottom:28px; line-height:1.6;">
-        Isso normalmente leva até 48 horas. Você já pode explorar a plataforma, mas seu perfil só aparece nas buscas de clientes depois da aprovação.
-      </p>
-      <span class="badge badge-neutral" style="font-size:13px; padding:8px 18px; margin-bottom:32px; display:inline-flex;">Em análise</span>
-      <br>
-      <button class="btn-primary" style="max-width:340px; margin: 0 auto 12px;" onclick="showScreen('screen-mecanico-perfil')">VER EXEMPLO DE PERFIL APROVADO →</button>
-      <button class="btn-secondary" style="width:100%; max-width:340px;" onclick="showScreen('screen-landing')">Voltar ao início</button>
+    <div class="site-footer-bottom">
+      <span>© 2026 AutoBox. Todos os direitos reservados.</span>
+      <span>Protótipo · Hackathon PigData 2026</span>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- ===================== CADASTRO DA OFICINA PARCEIRA ===================== -->
-  <section id="screen-cadastro-oficina" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="content-wrap narrow">
-      <div class="section-eyebrow">Cadastro de parceiro</div>
-      <h1 class="section-title">Conte sobre a sua oficina</h1>
-      <p class="section-subtitle">Essas informações aparecem para os clientes que buscarem um box na sua região.</p>
+<script>
+function showScreen(screenId) {
+  document.querySelectorAll('.screen-container').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  document.getElementById(screenId).classList.add('active');
+  window.scrollTo(0, 0);
+}
 
-      <div class="quiz-shell">
-        <div class="input-group">
-          <label>NOME DA OFICINA</label>
-          <input type="text" placeholder="Ex: Oficina Rota 10">
-        </div>
-        <div class="input-group">
-          <label>ENDEREÇO</label>
-          <input type="text" placeholder="Rua, número, bairro — Toledo, PR">
-        </div>
-        <div class="input-row">
-          <div class="input-group">
-            <label>HORÁRIO DE FUNCIONAMENTO</label>
-            <input type="text" placeholder="Ex: 07h às 22h, todos os dias">
-          </div>
-          <div class="input-group">
-            <label>Nº DE BOXES DISPONÍVEIS</label>
-            <input type="text" placeholder="Ex: 3">
-          </div>
-        </div>
+function togglePill(element) {
+  element.classList.toggle('active');
+}
 
-        <label class="section-label">TIPOS DE SERVIÇO ACEITOS</label>
-        <div class="equipments-row" style="border:none; padding-top:0; margin-bottom:20px;">
-          <button class="pill active" onclick="togglePill(this)">✓ Carro</button>
-          <button class="pill active" onclick="togglePill(this)">✓ SUV/Camionete</button>
-          <button class="pill" onclick="togglePill(this)">+ Motocicleta</button>
-          <button class="pill" onclick="togglePill(this)">+ Estética automotiva</button>
-        </div>
+function toggleSwitch(element) {
+  element.classList.toggle('on');
+}
 
-        <div class="toggle-row" style="margin-bottom:28px;">
-          <span class="label-title">Aceito mecânicos externos usando meus boxes</span>
-          <div class="toggle-switch on" onclick="toggleSwitch(this)"><div class="knob"></div></div>
-        </div>
+function toggleDemoNav() {
+  var links = document.getElementById('demoNavLinks');
+  var toggle = document.getElementById('demoNavToggle');
+  var collapsed = links.classList.toggle('is-collapsed');
+  toggle.textContent = collapsed ? 'Mostrar menu' : 'Ocultar menu';
+}
 
-        <button class="btn-primary" onclick="showScreen('screen-oficina-em-analise')">ENVIAR CADASTRO →</button>
-      </div>
-    </div>
-  </section>
+/* ---------- Cálculo automático da data/hora de término ---------- */
 
-  <section id="screen-oficina-em-analise" class="screen-container">
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left"><div class="logo-brand">AUTO<span>BOX</span></div></div>
-      </div>
-    </nav>
-    <div class="match-hero">
-      <div class="match-label">CADASTRO ENVIADO</div>
-      <div style="font-size:56px; margin: 16px 0;">🕓</div>
-      <div class="match-box-name">Sua oficina está em análise</div>
-      <p style="color:var(--text-muted); font-size:14px; margin-bottom:28px; line-height:1.6;">
-        Nossa equipe confere as informações antes de publicar seus boxes para reserva. Isso normalmente leva até 48 horas.
-      </p>
-      <span class="badge badge-neutral" style="font-size:13px; padding:8px 18px; margin-bottom:32px; display:inline-flex;">Em análise</span>
-      <br>
-      <button class="btn-primary" style="max-width:340px; margin: 0 auto 12px;" onclick="showScreen('screen-oficina-painel')">VER PAINEL DE EXEMPLO APROVADO →</button>
-      <button class="btn-secondary" style="width:100%; max-width:340px;" onclick="showScreen('screen-landing')">Voltar ao início</button>
-    </div>
-  </section>
+function calcularDataFim() {
+  var inicioInput = document.getElementById('reservaInicio');
+  var duracaoSelect = document.getElementById('filtroDuracao');
+  var fimInput = document.getElementById('reservaFim');
+  if (!inicioInput || !duracaoSelect || !fimInput) return;
 
-  <script>
-    let selectedProfileType = 'mecanico';
+  var horas = parseInt(duracaoSelect.value, 10);
+  if (!inicioInput.value || isNaN(horas)) {
+    fimInput.value = '';
+    return;
+  }
 
-    function showScreen(screenId) {
-      document.querySelectorAll('.screen-container').forEach(el => el.classList.remove('active'));
-      document.getElementById(screenId).classList.add('active');
-      window.scrollTo(0, 0);
-    }
+  var inicio = new Date(inicioInput.value);
+  var fim = new Date(inicio.getTime() + horas * 60 * 60 * 1000);
 
-    function selectProfile(element, type) {
-      const group = element.parentElement.querySelectorAll('.profile-card');
-      group.forEach(el => el.classList.remove('selected'));
-      element.classList.add('selected');
-      if (type) selectedProfileType = type;
-    }
+  function pad(n) { return String(n).padStart(2, '0'); }
 
-    function goToCadastroNext() {
-      if (selectedProfileType === 'mecanico') {
-        showScreen('screen-validacao-mecanico');
-      } else if (selectedProfileType === 'oficina') {
-        showScreen('screen-cadastro-oficina');
-      } else {
-        showScreen('screen-landing');
-      }
-    }
+  fimInput.value = pad(fim.getDate()) + '/' + pad(fim.getMonth() + 1) + '/' + fim.getFullYear() +
+    ' às ' + pad(fim.getHours()) + ':' + pad(fim.getMinutes());
+}
 
-    function selectRadioCard(element) {
-      const group = element.parentElement.querySelectorAll('.radio-card');
-      group.forEach(el => el.classList.remove('selected'));
-      element.classList.add('selected');
-    }
+/* ---------- Modal "Ver mais" equipamentos ---------- */
 
-    function togglePill(element) {
-      element.classList.toggle('active');
-    }
+var EXTRA_EQUIPMENTS = [
+  'Torquímetro',
+  'Macaco Hidráulico',
+  'Balanceadora de Rodas',
+  'Máquina de Solda MIG',
+  'Guincho Elétrico',
+  'Bancada de Trabalho',
+  'Iluminação LED de Alta Potência',
+  'Ar-condicionado no Box',
+  'Vestiário com Chuveiro',
+  'Estacionamento Coberto',
+  'Ponte Rolante',
+  'Sistema de Exaustão de Gases',
+  'Wi-Fi no Local',
+  'Câmeras de Segurança',
+  'Multímetro Automotivo',
+  'Chave de Impacto Pneumática',
+  'Kit Ferramentas Pneumáticas',
+  'Desmontadora de Pneus',
+  'Recarga de Ar-condicionado',
+  'Estação de Solda de Plástico'
+];
 
-    function toggleSwitch(element) {
-      element.classList.toggle('on');
-    }
-  </script>
+var selectedEquipmentExtras = new Set();
+
+function openEquipmentModal() {
+  document.getElementById('equipmentSearchInput').value = '';
+  renderEquipmentModalList('');
+  document.getElementById('equipmentModalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeEquipmentModal() {
+  document.getElementById('equipmentModalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function renderEquipmentModalList(filterText) {
+  var listEl = document.getElementById('equipmentModalList');
+  var term = (filterText || '').trim().toLowerCase();
+  var filtered = EXTRA_EQUIPMENTS.filter(function (item) {
+    return item.toLowerCase().indexOf(term) !== -1;
+  });
+
+  if (filtered.length === 0) {
+    listEl.innerHTML = '<p class="modal-empty">Nenhum equipamento encontrado.</p>';
+    return;
+  }
+
+  listEl.innerHTML = filtered.map(function (item) {
+    var checked = selectedEquipmentExtras.has(item) ? ' checked' : '';
+    return '<button type="button" class="modal-equipment-item' + checked + '" onclick="toggleEquipmentSelection(this, \'' + item.replace(/'/g, "\\'") + '\')">' +
+      '<span class="modal-checkbox"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>' +
+      '<span>' + item + '</span>' +
+      '</button>';
+  }).join('');
+}
+
+function toggleEquipmentSelection(element, item) {
+  if (selectedEquipmentExtras.has(item)) {
+    selectedEquipmentExtras.delete(item);
+    element.classList.remove('checked');
+  } else {
+    selectedEquipmentExtras.add(item);
+    element.classList.add('checked');
+  }
+}
+
+function applyEquipmentSelection() {
+  var row = document.getElementById('equipmentsRow');
+  var moreBtn = row.querySelector('.pill-more');
+
+  row.querySelectorAll('.pill[data-extra="1"]').forEach(function (pill) {
+    pill.remove();
+  });
+
+  selectedEquipmentExtras.forEach(function (item) {
+    var pill = document.createElement('button');
+    pill.className = 'pill active';
+    pill.setAttribute('data-extra', '1');
+    pill.setAttribute('onclick', 'togglePill(this)');
+    pill.textContent = item;
+    row.insertBefore(pill, moreBtn);
+  });
+
+  closeEquipmentModal();
+}
+</script>
 </body>
 </html>
