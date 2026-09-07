@@ -1457,13 +1457,30 @@ body {
     row-gap: 12px;
   }
 
+  /* "Dissolve" o wrapper .nav-left para poder reordenar logo, perfil
+     e links do menu de forma independente no layout mobile. */
   .nav-left {
-    gap: 24px;
+    display: contents;
   }
 
-  .nav-links {
-    gap: 14px;
+  .navbar .logo-brand {
+    order: 1;
+  }
+
+  .navbar .nav-right {
+    order: 2;
+  }
+
+  .navbar .nav-links {
+    order: 3;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 20px;
     font-size: 13px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 4px;
+    padding-bottom: 2px;
   }
 
   .filter-box {
